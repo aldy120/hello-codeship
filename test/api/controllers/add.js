@@ -18,12 +18,11 @@ describe('controllers', function() {
           .end(function(err, res) {
             should.not.exist(err);
 
-            res.body.should.eql('0 + 0 = 0');
+            res.body.should.eql('0');
 
             done();
           });
       });
-
       it('should return 100', function(done) {
 
         request(server)
@@ -35,12 +34,24 @@ describe('controllers', function() {
           .end(function(err, res) {
             should.not.exist(err);
 
-            res.body.should.eql('10 + 90 = 100');
+            res.body.should.eql('100');
 
             done();
           });
       });
 
+      it('should return 0 for input not number', function(done) {
+
+        request(server)
+          .get('/add')
+          .query({a: 'x', b: 90})
+          .set('Accept', 'application/json')
+          .expect('Content-Type', /json/)
+          .expect(400)
+          .end(function(err, res) {
+            done();
+          });
+      });
     });
 
   });

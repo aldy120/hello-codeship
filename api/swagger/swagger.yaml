@@ -62,7 +62,28 @@ paths:
         "200":
           description: Success
           schema:
-            $ref: "#/definitions/HelloWorldResponse"
+            $ref: "#/definitions/AddResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /time:
+    x-swagger-router-controller: time
+    get:
+      description: get time
+      operationId: getTime
+      parameters:
+        - name: name
+          in: query
+          description: hi
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/AddResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -84,3 +105,10 @@ definitions:
     properties:
       message:
         type: string
+  AddResponse: 
+    required: 
+      - message
+    properties: 
+      message:
+        type: number
+        
