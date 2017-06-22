@@ -9,5 +9,5 @@ function add(req, res) {
 }
 
 module.exports = {
-  add
+  add: add
 };
