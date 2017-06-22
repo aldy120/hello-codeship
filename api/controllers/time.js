@@ -1,8 +1,11 @@
+var moment = require('moment-timezone');
+moment().tz("America/Los_Angeles").format();
+
 function getTime(req, res) {
   var t = new Date();
-  var name = req.swagger.params.name.value;
-  var greeting = 'hi, ' + name + '. ' + t.toString();
-  res.json(greeting);
+  var timezone = req.swagger.params.timezone.value;
+  var message = timezone ? moment().tz(timezone).format() : moment().format();
+  res.json(message);
 }
 
 module.exports = {

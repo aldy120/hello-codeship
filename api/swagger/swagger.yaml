@@ -71,19 +71,19 @@ paths:
   /time:
     x-swagger-router-controller: time
     get:
-      description: get time
+      description: get time with timezone
       operationId: getTime
       parameters:
-        - name: name
+        - name: timezone
           in: query
-          description: hi
+          description: the timezone
           required: false
           type: string
       responses:
         "200":
           description: Success
           schema:
-            $ref: "#/definitions/AddResponse"
+            $ref: "#/definitions/TimeResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -111,4 +111,12 @@ definitions:
     properties: 
       message:
         type: number
+  TimeResponse: 
+    required: 
+      - message
+    properties: 
+      message:
+        type: string
+        
+        
         
