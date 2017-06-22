@@ -27,7 +27,7 @@ describe('controllers', function() {
       it('should return 100', function(done) {
 
         request(server)
-          .get('/hello')
+          .get('/add')
           .query({a: 10, b: 90})
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
