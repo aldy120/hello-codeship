@@ -42,10 +42,3 @@ function hello(req, res) {
   // this sends back a JSON response which is a single string
   res.json(hello);
 }
-
-function add(req, res) {
-  var a = req.swagger.params.a.value || 0;
-  var b = req.swagger.params.b.value || 0;
-  var ans = util.format('Answer: ', a + b);
-  res.json(ans);
-}
