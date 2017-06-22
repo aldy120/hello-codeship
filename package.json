@@ -10,8 +10,7 @@
   "dependencies": {
     "restify": "^4.0.2",
     "swagger": "^0.7.5",
-    "swagger-restify-mw": "^0.1.0",
-    "swaggger": "*"
+    "swagger-restify-mw": "^0.1.0"
   },
   "devDependencies": {
     "should": "^7.1.0",
